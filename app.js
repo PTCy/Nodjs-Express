@@ -6,15 +6,15 @@ const path = require('path');//ใช้ตอน มี path
 
 
 const app = express();
-const port = 8000;
+const PORT = process.env.PORT;
 
 app.use(morgan('combined'));
 app.use(express.static(path.join(__dirname,'/public/')));
 
 app.get("/", (req, res) => {
-    res.send('Hello World');
+    res.send('Hello');
 })
 
-app.listen(port, () => {
-    console.log("Listening on port " + chalk.red(port));
+app.listen(PORT, () => {
+   debug("Listening on port " + chalk.red(PORT));
 })
